@@ -1,14 +1,13 @@
-package com.example.summary.controller;
+package com.example.resume.controller;
 
 
-import com.example.summary.model.People;
-import com.example.summary.serviece.PeopleService;
+import com.example.resume.model.People;
+import com.example.resume.serviece.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -97,7 +96,7 @@ public class PeopleController {
         String surname = allParams.getOrDefault("surname", null);
 
         final List<People> peoples = peopleService.findByNameAndSurname(name, surname);
-        ;
+
 
 
         if (peoples != null && !peoples.isEmpty()) {

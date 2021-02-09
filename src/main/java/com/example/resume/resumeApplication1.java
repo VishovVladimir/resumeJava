@@ -1,13 +1,13 @@
-package com.example.summary;
+package com.example.resume;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Summary1Application {
+public class resumeApplication1 {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Summary1Application.class, args);
+		SpringApplication.run(resumeApplication1.class, args);
 	}
 
 }

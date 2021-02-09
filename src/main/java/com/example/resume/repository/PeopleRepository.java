@@ -1,6 +1,6 @@
-package com.example.summary.repository;
+package com.example.resume.repository;
 
-import com.example.summary.model.People;
+import com.example.resume.model.People;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

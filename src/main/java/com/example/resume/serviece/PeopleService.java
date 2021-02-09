@@ -1,6 +1,6 @@
-package com.example.summary.serviece;
+package com.example.resume.serviece;
 
-import com.example.summary.model.People;
+import com.example.resume.model.People;
 
 import java.util.List;
 

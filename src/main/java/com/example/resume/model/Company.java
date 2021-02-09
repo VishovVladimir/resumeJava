@@ -1,9 +1,7 @@
-package com.example.summary.model;
+package com.example.resume.model;
 
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 

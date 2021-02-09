@@ -1,13 +1,12 @@
-package com.example.summary.controller;
+package com.example.resume.controller;
 
-import com.example.summary.model.Company;
-import com.example.summary.serviece.CompanyService;
+import com.example.resume.model.Company;
+import com.example.resume.serviece.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 

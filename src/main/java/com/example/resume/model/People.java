@@ -1,15 +1,8 @@
-package com.example.summary.model;
+package com.example.resume.model;
 
-
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Calendar;
 
 @Entity
 @Table(name = "peoples")

@@ -1,7 +1,7 @@
-package com.example.summary.serviece;
+package com.example.resume.serviece;
 
-import com.example.summary.model.Company;
-import com.example.summary.repository.CompanyRepository;
+import com.example.resume.model.Company;
+import com.example.resume.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
