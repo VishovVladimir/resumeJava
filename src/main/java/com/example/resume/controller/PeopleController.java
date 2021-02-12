@@ -94,8 +94,9 @@ public class PeopleController {
 
         String name = allParams.getOrDefault("name", null);
         String surname = allParams.getOrDefault("surname", null);
+        String sex = allParams.getOrDefault("sex", null);
 
-        final List<People> peoples = peopleService.findByNameAndSurname(name, surname);
+        final List<People> peoples = peopleService.findByNameAndSurnameAndSex(name, surname, sex);
 
 
 

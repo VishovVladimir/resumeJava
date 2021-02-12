@@ -61,7 +61,7 @@ public class PeopleServiceImpl implements PeopleService {
 
 
     @Override
-    public List<People> findByNameAndSurname(String name, String surname) {
-        return repository.findAllByNameAndSurname(name, surname);
+    public List<People> findByNameAndSurnameAndSex(String name, String surname, String sex) {
+        return repository.findAllByNameAndSurnameAndSex(name, surname, sex);
     }
 }

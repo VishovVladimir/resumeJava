@@ -10,8 +10,9 @@ import java.util.List;
 public interface PeopleRepository extends JpaRepository<People, Long> {
 
     @Query(value = "SELECT p FROM People p WHERE (:name is null or p.name = :name) and (:surname is null"
-            + " or p.surname = :surname)")
-    List<People> findAllByNameAndSurname(@Param("name") String name, @Param("surname") String surname);
+            + " or p.surname = :surname) and (:sex is null or p.sex = :sex)")
+    List<People> findAllByNameAndSurnameAndSex(@Param("name") String name, @Param("surname") String surname,
+                                            @Param("sex") String sex);
 //
 //    List<People> findBySurname();
 //

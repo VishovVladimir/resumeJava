@@ -18,7 +18,7 @@ public interface PeopleService {
 
 
 
-    List<People> findByNameAndSurname(String name, String surname);
+    List<People> findByNameAndSurnameAndSex(String name, String surname, String sex);
 
 
 
