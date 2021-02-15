@@ -2,7 +2,11 @@ package com.example.resume.serviece;
 
 import com.example.resume.model.People;
 import com.example.resume.repository.PeopleRepository;
+import com.example.resume.repository.PeopleSpecification;
+import com.example.resume.repository.PeopleSpecificationBuilder;
+import com.example.resume.repository.SearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -62,6 +66,24 @@ public class PeopleServiceImpl implements PeopleService {
 
     @Override
     public List<People> findByNameAndSurnameAndSex(String name, String surname, String sex) {
-        return repository.findAllByNameAndSurnameAndSex(name, surname, sex);
+        PeopleSpecificationBuilder builder = new PeopleSpecificationBuilder();
+        if(name!=null&& name!=""){
+         builder.with("name",":", name);
+
+        }
+        if(surname!=null&& surname!=""){
+            builder.with("surname",":", surname);
+
+        }
+        if(sex!=null&& sex!=""){
+            builder.with("sex",":", sex);
+
+        }
+        Specification<People> spec = builder.build();
+
+
+
+return  repository.findAll(spec);
+
     }
 }
