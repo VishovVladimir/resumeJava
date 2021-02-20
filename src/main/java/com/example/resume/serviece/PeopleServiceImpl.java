@@ -67,7 +67,7 @@ public class PeopleServiceImpl implements PeopleService {
     @Override
     public List<People> findByNameAndSurnameAndSex(String name, String surname, String sex) {
         PeopleSpecificationBuilder builder = new PeopleSpecificationBuilder();
-        if(name!=null&& name!=""){
+        if(isBlan name!=null&& name!=""){
          builder.with("name",":", name);
 
         }
@@ -81,7 +81,7 @@ public class PeopleServiceImpl implements PeopleService {
         }
         Specification<People> spec = builder.build();
 
-
+//apache commons 3 isBlank()
 
 return  repository.findAll(spec);
 

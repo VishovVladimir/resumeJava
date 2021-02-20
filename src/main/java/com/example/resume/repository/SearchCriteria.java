@@ -10,14 +10,8 @@ public class SearchCriteria {
 
     private String key;
     private Boolean orPredicate = false;
-
-    public Boolean getOrPredicate() {
-        return orPredicate;
-    }
-
-    public void setOrPredicate(Boolean orPredicate) {
-        this.orPredicate = orPredicate;
-    }
+    private String operation;
+    private Object value;
 
     public String getKey() {
         return key;
@@ -25,6 +19,14 @@ public class SearchCriteria {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public Boolean getOrPredicate() {
+        return orPredicate;
+    }
+
+    public void setOrPredicate(Boolean orPredicate) {
+        this.orPredicate = orPredicate;
     }
 
     public String getOperation() {
@@ -43,11 +45,8 @@ public class SearchCriteria {
         this.value = value;
     }
 
-    private String operation;
-    private Object value;
-
     public boolean isOrPredicate() {
-        if(orPredicate)
+        if (orPredicate)
             return true;
         else return false;
     }
