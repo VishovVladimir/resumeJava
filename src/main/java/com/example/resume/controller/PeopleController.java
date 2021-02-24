@@ -2,6 +2,7 @@ package com.example.resume.controller;
 
 
 import com.example.resume.model.People;
+import com.example.resume.model.PeopleFilter;
 import com.example.resume.serviece.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -90,25 +91,14 @@ public class PeopleController {
     }
 
     @GetMapping(value = "/peoples/find")
-    public ResponseEntity<List<People>> find(@RequestParam Map<String, String> allParams) {
+    public ResponseEntity<List<People>> find( PeopleFilter filter) {
 
-        String name = allParams.getOrDefault("name", null);
-        String surname = allParams.getOrDefault("surname", null);
-        String sex = allParams.getOrDefault("sex", null);
-
-        final List<People> peoples = peopleService.findByNameAndSurnameAndSex(name, surname, sex);
+        final List<People> peoples = peopleService.find(filter);
 
 
-
-        if (peoples != null && !peoples.isEmpty()) {
 
 
             return new ResponseEntity<>(peoples, HttpStatus.OK);
-
-        } else {
-
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
     }
 
 

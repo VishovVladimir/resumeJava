@@ -1,6 +1,7 @@
 package com.example.resume.serviece;
 
 import com.example.resume.model.People;
+import com.example.resume.model.PeopleFilter;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface PeopleService {
 
 
 
-    List<People> findByNameAndSurnameAndSex(String name, String surname, String sex);
+    List<People> find(PeopleFilter filter);
 
 
 

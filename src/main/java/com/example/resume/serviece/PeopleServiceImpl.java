@@ -1,10 +1,8 @@
 package com.example.resume.serviece;
 
 import com.example.resume.model.People;
+import com.example.resume.model.PeopleFilter;
 import com.example.resume.repository.PeopleRepository;
-import com.example.resume.repository.PeopleSpecification;
-import com.example.resume.repository.PeopleSpecificationBuilder;
-import com.example.resume.repository.SearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -65,25 +63,15 @@ public class PeopleServiceImpl implements PeopleService {
 
 
     @Override
-    public List<People> findByNameAndSurnameAndSex(String name, String surname, String sex) {
-        PeopleSpecificationBuilder builder = new PeopleSpecificationBuilder();
-        if(isBlan name!=null&& name!=""){
-         builder.with("name",":", name);
+    public List<People> find(PeopleFilter filter) {
 
-        }
-        if(surname!=null&& surname!=""){
-            builder.with("surname",":", surname);
+        //Specification<People> spec = builder.build();
+        //Specification<People> spec = PeopleSpecificationBuilder.getSpecification(filter);
 
-        }
-        if(sex!=null&& sex!=""){
-            builder.with("sex",":", sex);
-
-        }
-        Specification<People> spec = builder.build();
 
 //apache commons 3 isBlank()
 
-return  repository.findAll(spec);
+return  repository.findAll(filter);
 
     }
 }
