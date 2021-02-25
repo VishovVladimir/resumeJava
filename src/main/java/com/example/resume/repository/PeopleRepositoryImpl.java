@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -60,9 +61,41 @@ public class PeopleRepositoryImpl implements PeopleRepositoryCustom {
             predicates.add(cb.equal(people.get("company").get("id"), filter.getCompany().getId()));
 
         }
-        cq.where(predicates.toArray(new Predicate[0]));
+        Predicate finalQuery = cb.and(predicates.toArray(new Predicate[0]));
+        cq.where(finalQuery);
 
-        return em.createQuery(cq).getResultList();
+
+        if (filter.getPage_number() != null && filter.getPage_size() != null) {
+            TypedQuery<People> typedQuery = em.createQuery(cq);
+            CriteriaQuery<Long> countQuery = cb.createQuery(Long.class);
+
+            countQuery.select(cb.count(countQuery.from(People.class)));
+            em.createQuery(countQuery);
+            countQuery.where(finalQuery);
+            Long count = em.createQuery(countQuery).getSingleResult();
+            int firstNum = (filter.getPage_number() - 1) * filter.getPage_size();
+
+            if (count > 0 && firstNum < count) {
+
+
+                typedQuery.setFirstResult(firstNum);
+                int quotient = (int) (count - firstNum);
+                if (quotient > filter.getPage_size()) {
+                    typedQuery.setMaxResults(filter.getPage_size());
+
+                } else {
+                    typedQuery.setMaxResults(quotient);
+
+                }
+                return typedQuery.getResultList();
+
+
+            } else return new ArrayList<>();
+        } else {
+            return em.createQuery(cq).getResultList();
+        }
 
     }
+
+
 }
