@@ -1,4 +1,4 @@
-package com.example.resume.serviece;
+package com.example.resume.service;
 
 import com.example.resume.model.Company;
 

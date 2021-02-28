@@ -16,6 +16,8 @@ import java.util.List;
 
 @Repository
 public class PeopleRepositoryImpl implements PeopleRepositoryCustom {
+
+
     @Autowired
     EntityManager em;
 
@@ -96,6 +98,7 @@ public class PeopleRepositoryImpl implements PeopleRepositoryCustom {
         }
 
     }
+
 
 
 }

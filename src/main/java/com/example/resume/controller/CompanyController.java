@@ -1,7 +1,7 @@
 package com.example.resume.controller;
 
 import com.example.resume.model.Company;
-import com.example.resume.serviece.CompanyService;
+import com.example.resume.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

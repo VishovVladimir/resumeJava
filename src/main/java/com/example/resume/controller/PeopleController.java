@@ -3,7 +3,7 @@ package com.example.resume.controller;
 
 import com.example.resume.model.People;
 import com.example.resume.model.PeopleFilter;
-import com.example.resume.serviece.PeopleService;
+import com.example.resume.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class PeopleController {
@@ -29,9 +28,17 @@ public class PeopleController {
 
         people.setCreated_at(LocalDateTime.now());
 
-        peopleService.create(people);
+        if (peopleService.create(people)){
+            return new ResponseEntity<>(HttpStatus.CREATED);
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+
+
+
+
 
     }
 

@@ -1,10 +1,9 @@
-package com.example.resume.serviece;
+package com.example.resume.service;
 
 import com.example.resume.model.People;
 import com.example.resume.model.PeopleFilter;
 import com.example.resume.repository.PeopleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,8 +17,13 @@ public class PeopleServiceImpl implements PeopleService {
 
 
     @Override
-    public void create(People people) {
-        repository.save(people);
+    public boolean create(People people) {
+
+        if(repository.findByEmail(people.getEmail())==null){
+            repository.save(people);
+            return true;
+        }
+        else return false;
 
 
     }

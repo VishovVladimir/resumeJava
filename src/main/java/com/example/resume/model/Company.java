@@ -42,7 +42,7 @@ public class Company {
         this.created_at = created_at;
     }
 
-    @OneToMany(targetEntity = People.class, mappedBy = "company", fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = People.class, mappedBy = "company", cascade = CascadeType.ALL, fetch =  FetchType.EAGER)
     private Collection<People> employees;
 
 

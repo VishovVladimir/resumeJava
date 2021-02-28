@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 public interface PeopleRepositoryCustom {
-
     public List<People> findAll(PeopleFilter filter);
+
+
 }

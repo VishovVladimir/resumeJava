@@ -1,4 +1,4 @@
-package com.example.resume.serviece;
+package com.example.resume.service;
 
 import com.example.resume.model.People;
 import com.example.resume.model.PeopleFilter;
@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PeopleService {
 
-    void create(People people);
+    boolean create(People people);
 
     List<People> readAll();
 

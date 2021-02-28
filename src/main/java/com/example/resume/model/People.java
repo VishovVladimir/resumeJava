@@ -5,7 +5,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "peoples")
+@Table(name = "peoples", indexes = {
+        @Index(name = "index_email", columnList = "email", unique = true)})
 //@JsonSerialize(using = CustomPeopleSerializer.class)
 public class People {
     @Id
@@ -16,12 +17,12 @@ public class People {
     private String surname;
     private String sex;
     private Integer age;
+    private String email;
 
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "company_id")
     private Company company;
-
 
 
     private LocalDateTime created_at;
@@ -91,12 +92,20 @@ public class People {
         this.age = age;
     }
 
-  public Company getCompany() {
-      return company;
-   }
+    public Company getCompany() {
+        return company;
+    }
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 
